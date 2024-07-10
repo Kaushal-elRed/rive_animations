@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:rive_animations/loading_animation.dart';
+import 'package:rive_animations/state_restoration_example.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const RootRestorationScope(
+    restorationId: "root",
+    child: MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -12,10 +15,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      restorationScopeId: "root",
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const LoadingAnimation(),
+      home: const StateRestorationExample(),
     );
   }
 }
